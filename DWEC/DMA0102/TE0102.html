@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea de Depuracion JS - Centro de Distribución</title>
+  <style>
+    :root {
+      --bg-1: #f6f2e9;
+      --bg-2: #fbe5c8;
+      --ink: #1f2a37;
+      --accent: #005f73;
+      --accent-2: #bb3e03;
+      --card: rgba(255, 255, 255, 0.8);
+      --line: #d9cab3;
+      --ok: #2a9d8f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, #fff4dd 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, #ffe2bf 0%, transparent 45%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2));
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      background: var(--card);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      animation: slideDown 500ms ease-out;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+      letter-spacing: 0.3px;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #34495e;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    section {
+      background: var(--card);
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      animation: fadeInUp 600ms ease both;
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: var(--accent-2);
+    }
+
+    ol, ul {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+
+    code {
+      background: #fff5e6;
+      border: 1px solid #f0d7b6;
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+
+    .rubrica li {
+      margin-bottom: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--ok);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .hint {
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+      margin: 12px 0 0;
+      font-size: 0.96rem;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-12px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Centro de Centro de Distribución: Mision Depuracion</h1>
+      <p class="subtitle">Tu equipo hereda un modulo JS que calcula etiquetas, totales y validaciones de paquetes.</p>
+      <p class="hint"><strong>Objetivo:</strong> localizar y corregir 10 bugs pequenos en funciones simples de cadenas y numeros.</p>
+      <span class="badge">Nivel: iniciacion a depuracion</span>
+    </header>
+
+    <div class="grid">
+      <section>
+        <h2>Enunciado del ejercicio</h2>
+        <p>
+          La empresa Almarzon procesa envios para clientes de todo el mundo y está generando etiquetas. Antes de imprimir etiquetas finales,
+          debes verificar que los calculos y transformaciones de texto sean correctos.
+        </p>
+        <p>
+          El programa ya ejecuta pruebas por consola, pero se sabe que cada funcion contiene un fallo.
+        </p>
+      </section>
+
+      <section>
+        <h2>Instrucciones del ejercicio</h2>
+        <ol>
+          <li>Abre DevTools con <code>F12</code>.</li>
+          <li>Ve a la pestana <code>Sources</code> y activa breakpoints en cada funcion.</li>
+          <li>Ejecuta el codigo y observa variables en <code>Scope</code>.</li>
+          <li>Encuentra el bug en cada funcion y corrigelo.</li>
+          <li>Corrige un bug por funcion sin reescribir todo el programa.</li>
+          <li>Comprueba la salida esperada en consola tras cada arreglo.</li>
+          <li>Añade un comentario de código explicativo para cada corrección realizada.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Recordatorio: depurar en Chrome</h2>
+        <ul>
+          <li><code>F12</code>: abrir herramientas.</li>
+          <li><code>Sources</code>: poner breakpoints en lineas clave.</li>
+          <li><code>Step over (F10)</code>: avanzar instruccion a instruccion.</li>
+          <li><code>Watch</code>: vigilar expresiones como <code>total</code>, <code>i</code> o <code>texto</code>.</li>
+          <li><code>Console</code>: lanzar pruebas manuales, por ejemplo <code>sumarTarifas("12", 8)</code>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Rubrica de valoracion (10 puntos)</h2>
+        <ol class="rubrica">
+          <li>1 punto: bug en <code>normalizarNombreCliente</code>.</li>
+          <li>1 punto: bug en <code>contarCaracteresEtiqueta</code>.</li>
+          <li>1 punto: bug en <code>sumarTarifas</code>.</li>
+          <li>1 punto: bug en <code>calcularDescuento</code>.</li>
+          <li>1 punto: bug en <code>esCodigoUrgente</code>.</li>
+          <li>1 punto: bug en <code>obtenerIniciales</code>.</li>
+          <li>1 punto: bug en <code>repetirCodigo</code>.</li>
+          <li>1 punto: bug en <code>buscarPrimerVocal</code>.</li>
+          <li>1 punto: bug en <code>promedioPesos</code>.</li>
+          <li>1 punto: bug en <code>formatearPrecio</code>.</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+
+    console.log("=== CENTRO ALMAZON LOGROÑO - INICIO DE PRUEBAS DE ETIQUETAS ===");
+
+
+    /*
+      Debe limpiar espacios al inicio y al final del nombre recibido,
+      y devolver el texto en mayusculas para normalizar la etiqueta del cliente.
+      Entrada esperada: string con posibles espacios sobrantes.
+      Salida esperada: string en mayusculas, sin espacios en los extremos.
+    */
+	  // LA DESCRIPCIÓN DEL PRIMER BUG TE LA DOY HECHA, PARA QUE TE SIRVA COMO EJEMPLO PARA LAS DEMÁS (0,5 PUNTOS DE REGALO).
+    // 1) BUG: falta trim para quitar los espacios iniciales y finales.
+    function normalizarNombreCliente(nombre) {
+      const limpio = nombre;
+      // Añadir el trim para los espacios faltante
+      return limpio.toUpperCase().trim();
+    }
+
+    /*
+      Debe contar cuantas posiciones tiene una etiqueta de envio.
+      Entrada esperada: string con el codigo de etiqueta.
+      Salida esperada: number entero igual a la longitud real del texto.
+    */
+    // 2) BUG: el bucle cuenta un carácter de más por culpa de <=
+    function contarCaracteresEtiqueta(etiqueta) {
+      let contador = 0;
+      // Cuento solo los caracteres que existen, bucle con formatico clasico en los lenguajes c-like (i=0, i < size)
+      for (let i = 0; i < etiqueta.length; i++) {
+        contador++;
+      }
+      return contador;
+    }
+
+    /*
+      Debe sumar la tarifa base y la tarifa extra como valores numericos,
+      aunque alguna entrada llegue en formato texto.
+      Entradas esperadas: dos valores que representan importes.
+      Salida esperada: number con la suma total.
+    */
+    // 3) BUG: si recibe texto tiene que convertirlo antes de sumar
+    function sumarTarifas(base, extra) {
+      // Convierto ambos importes a número antes de sumarlos
+      return Number(base) + Number(extra);
+    }
+
+    /*
+      Debe calcular el importe de descuento aplicando un porcentaje
+      sobre el precio total, conservando los decimales.
+      Entradas esperadas: precio numerico y porcentaje numerico.
+      Salida esperada: number con el valor del descuento.
+    */
+    // 4) BUG: parseInt trunca los decimales
+    function calcularDescuento(precio, porcentaje) {
+      // Con Number conservo los decimales
+      const total = Number(precio) * (Number(porcentaje) / 100);
+      return total;
+    }
+
+    /*
+      Debe validar si un codigo corresponde a envio urgente.
+      Entrada esperada: codigo de urgencia en string o number.
+      Salida esperada: boolean, true solo cuando el codigo sea 99.
+    */
+    // 5) BUG: puede estar comaprando texto y numero
+    function esCodigoUrgente(codigo) {
+      // transformar a numero, en este caso sin truncar para que 99.1 no valga tampoco
+      return Number(codigo) === 99;
+    }
+
+    /*
+      Debe obtener las iniciales del nombre completo del cliente.
+      Entrada esperada: string con nombre y apellido separados por ESPACIO.
+      Salida esperada: string de dos caracteres con las iniciales en orden.
+    */
+    // 6) BUG: separa por guion en vez de espacios, ademas supone que ha separado con exito y crashea cuando no es asi:
+    //        Uncaught TypeError TypeError: Cannot read properties of undefined (reading '0')
+    function obtenerIniciales(nombreCompleto) {
+      // Separo el nombre y el apellido por espacios + trim ayuda con posibles espacios
+      const partes = nombreCompleto.trim().split(" ");
+      return partes[0][0] + partes[1][0];
+    }
+
+    /*
+      Debe repetir un codigo de seguimiento tantas veces como indique el contador.
+      Entradas esperadas: codigo string y numero de repeticiones entero.
+      Salida esperada: string con el codigo concatenado exactamente "veces" veces.
+    */
+    // 7) BUG: repite el código una vez menos
+    function repetirCodigo(codigo, veces) {
+      let salida = "";
+      // de nuevo bucle c-like, si se pone size-1 el comprador tiene que ser <=, personalmente quito el -1
+      for (let i = 0; i < veces; i++) {
+        salida += codigo;
+      }
+      return salida;
+    }
+
+    /*
+      Debe recorrer el texto de izquierda a derecha y devolver
+      la primera vocal encontrada.
+      Entrada esperada: string cualquiera.
+      Salida esperada: string con una vocal; si no existe, "No encontrada".
+    */
+    // 8) BUG: hace return cuando no entra al if DENTRO del bucle por lo que solo mira la primera letra
+    function buscarPrimerVocal(texto) {
+      const vocales = "aeiouAEIOU";
+      for (let i = 0; i < texto.length; i++) {
+        if (vocales.includes(texto[i])) {
+          return texto[i];
+        }
+      }
+      // se hace return cuando el bucle ha terminado
+      return "No encontrada";
+    }
+
+    /*
+      Debe calcular la media aritmetica de un conjunto de pesos.
+      Entrada esperada: array de numbers.
+      Salida esperada: number con suma de elementos dividida por cantidad real.
+    */
+    // 9) BUG: divide entre uno de más al final
+    function promedioPesos(pesos) {
+      let suma = 0;
+      for (let i = 0; i < pesos.length; i++) {
+        suma += pesos[i];
+      }
+      // pesos.length ya es la cantidad correcta, las dudas con +-1 errors surgen de los bucles al dudar cuanto estas iterando
+      return suma / pesos.length;
+    }
+
+    /*
+      Debe formatear un precio con dos decimales y sufijo de moneda.
+      Entrada esperada: valor numerico o string convertible a numero.
+      Salida esperada: string con formato "00.00 EUR".
+    */
+    // 10) BUG: toFixed no funciona directamente con texto
+    function formatearPrecio(precio) {
+      // Convierto el precio a número antes de formatearlo
+      return Number(precio).toFixed(2) + " EUR";
+    }
+
+    // PRUEBAS, NO MODIFICAR ESTE CÓDIGO //////////////////////////////////////
+    console.log("1)", normalizarNombreCliente("  ana torres  "));
+    console.log("2)", contarCaracteresEtiqueta("PKT-44"));
+    console.log("3)", sumarTarifas("12", 8));
+    console.log("4)", calcularDescuento("39.95", 10));
+    console.log("5)", esCodigoUrgente("99"));
+    console.log("5)bis", esCodigoUrgente("99.1"));
+    console.log("6)", obtenerIniciales("Luis Garcia"));
+    console.log("6)bis", obtenerIniciales(" Luis Garcia  "));
+    console.log("7)", repetirCodigo("ZX", 3));
+    console.log("8)", buscarPrimerVocal("Rhythm"));
+    console.log("8)bis", buscarPrimerVocal("Ristra"));
+    console.log("9)", promedioPesos([2, 3, 5]));
+    console.log("10)", formatearPrecio("14.5"));
+
+    console.log("=== FIN DE PRUEBAS ===");
+	///////////////////////////////////////////////////////////////////////////
+
+    // output inicial
+    //1)   ANA TORRES
+    //2) 7
+    //3) 128
+    //4) 3.9000000000000004
+    //5) false
+    // crash
+    //7) ZXZX
+    //8) No encontrada
+    //9) 2.5
+    // crash
+
+  </script>
+</body>
+</html>

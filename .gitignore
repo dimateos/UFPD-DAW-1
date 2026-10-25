@@ -1,2 +1,7 @@
 # some portables e.g. php
 bin/
+
+# some outputs
+*.out.html
+out.html
+*.zip
