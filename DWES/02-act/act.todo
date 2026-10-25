@@ -1,0 +1,32 @@
+1. Escribe un código en PHP que nos muestre la fecha y hora actual con el siguiente formato.
+
+MM/DD/YYYY HH:MM:SS
+
+2. Busca en internet o escribe un código en PHP que pida dos números, los sume y los imprima en pantalla y explícalo línea por línea.
+
+Aclaración: se trata de leer desde consola, no se trata de usar formularios (que no se ha explicado aún cómo recoger en PHP los valores enviados a través de un formulario HTML)
+
+3. Dadas estas variables en PHP
+
+$x = 5;
+$y = 3;
+
+¿Cuáles de las siguientes expresiones son verdaderas?
+
+a) $x > $y && $x != $y
+b) $x == $y || $x > $y
+c) !($x <= $y)
+d) $x + $y >= 8 && $x - $y < 2
+
+4. Dadas estas variables en PHP
+
+$a = 7;
+$b = 3.5;
+$c = "10";
+
+Considerando estos valores, ¿cuáles de las siguientes expresiones son verdaderas?
+
+a) $a / $b == 2
+b) intval($c) == $a
+c) $a * $b != intval($c)
+d) $b ** 2 > $a
