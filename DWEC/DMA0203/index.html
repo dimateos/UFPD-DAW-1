@@ -93,22 +93,38 @@
 
     /* 6) Devuelve el tipo del argumento: objeto, booleano, funcion, numero, cadena o undefined. */
     function obtenerTipo(valor) {
-      return null;
+      // REF:: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/typeof
+      return typeof valor;
     }
 
     /* 7) Descompone una cantidad en monedas indicadas por un array de valores. */
     function cantidadMonedas(cantidad, monedas) {
-      return null;
+      let cambio = [];
+      for (let i = 0; i < monedas.length; i++) {
+        // parecido al de las vocales pero con un while hasta que la moneda sea valida
+        // puede que el ejercicio mas chungo a nivel algoritmo (sin funciones concretas de string / lista)
+        while (cantidad >= monedas[i]) {
+          cambio.push(monedas[i]);
+          cantidad -= monedas[i];
+        }
+      }
+      return cambio;
     }
 
     /* 8) Devuelve el dominio de una direccion de correo electronico, sin el @. */
     function extraerDominio(correo) {
-      return null;
+      // split por @ ya separa el dominio? no se necesita ni substring
+      return String(correo).split("@")[1];
     }
 
     /* 9) Devuelve el promedio de las notas recibidas en un array. */
     function promedioNotas(arrayNotas) {
-      return null;
+      // basicamente igual que el ejercicio en el que cuento vocales
+      let suma = 0;
+      for (let i = 0; i < arrayNotas.length; i++) {
+        suma += arrayNotas[i];
+      }
+      return suma / arrayNotas.length;
     }
 
     // Agrupar las funciones para poder llamarlas en formato DICT como si fueran parte de una clase
@@ -128,9 +144,11 @@
     function run(numeroEjercicio, nombreFuncion, listaInputs) {
       const funcion = funciones[nombreFuncion];
 
+      // titulo como en la foto
       document.write("<h1>Ejercicio " + numeroEjercicio + "</h1>");
       document.write("<p>Función que se llama: \"" + nombreFuncion + "\"</p>");
 
+      // cada input (quizas hubiese quedado mejor con una lista ul)
       for (const parametros of listaInputs) {
         document.write("<p>Parametro que se pasa: " + JSON.stringify(parametros) + "</p>");
         document.write("<p>Resultado: " + funcion(...parametros) + "</p>");
