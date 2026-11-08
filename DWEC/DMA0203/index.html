@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMA0203</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    "use strict";
+    console.log("=== DMA0203 loaded ===");
+
+    /* 1) Devuelve si la cadena es palindroma ignorando espacios, mayusculas y acentos. */
+    function esPalindromo(cadena) {
+      let cc = String(cadena).toLowerCase().replaceAll(" ", "");
+
+      // aun faltan los acentos -> normalize parece lo mejor (que reemplazar cada letra con acento...)
+      // REF:: https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
+      cc = cc.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+      //console.log("cc", cc);
+
+      for (let i = 0; i < cc.length; i++) {
+        if (cc[i] != cc[cc.length-1-i])
+          return false;
+      }
+      return true;
+    }
+
+    /* 2) Devuelve las iniciales de cada palabra usando split y substr. */
+    function obtenerIniciales(nombreCompleto) {
+      let names = String(nombreCompleto).split(" ");
+
+      // tiene que haber mejores formas usando array.map, pero un loop como el anterior sobra
+      let siglas = "";
+      for (let i = 0; i < names.length; i++) {
+        let n = names[i];
+        siglas += n.substring(0,1).toUpperCase();
+      }
+      return siglas;
+    }
+
+    /* 3) Devuelve las palabras de una oracion en orden inverso. */
+    function revertirPalabras(oracion) {
+      let palabras = String(oracion).split(" ");
+
+      // parecido al loop del ejercicio anterior, y en este caso creo que no valdria array.map
+      // OPT:: bueno puedes hacer un reverse a la lista y join todo con espacios
+      let sarbalap = "";
+      for (let i = 0; i < palabras.length; i++) {
+        let p = palabras[palabras.length-1-i];
+        sarbalap += p + " ";
+      }
+      return sarbalap;
+    }
+
+    /* 4) Desplaza cada letra una posicion en el alfabeto; z pasa a ser a. */
+    function desplazarLetras(cadena) {
+      // ascii del cada char se puede sumar 1 y tener un caso especial para el ultimo que haga loop? como en c++?
+      // REF:: https://stackoverflow.com/questions/10879244/how-to-get-the-ascii-value-in-javascript-for-the-characters
+
+      let cadena_shifted = "";
+      for (let i = 0; i < cadena.length; i++) {
+        let c = cadena[i];
+
+        // loop (naive handle edge cases)
+        if (c === "z") cadena_shifted += "a";
+        else if (c === "Z") cadena_shifted += "A";
+
+        // shift directamente ignorando caracteres especiales ascii (naive de nuevo)
+        else cadena_shifted += String.fromCharCode(c.charCodeAt(0)+1);
+      }
+      return cadena_shifted;
+    }
+
+    /* 5) Cuenta las vocales de una cadena, incluidas las vocales acentuadas. */
+    function contarVocales(cadena) {
+      // siguiendo ejercicio 1 que elimina acentos
+      let cc = String(cadena).toLowerCase().replaceAll(" ", "");
+      cc = cc.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+
+      // no he visto que String tenga count o similar asi que loop
+      const vocales = "aeiou";
+      let counter = 0;
+      for (let i = 0; i < cc.length; i++) {
+        for (let j = 0; j < vocales.length; j++) {
+          if (cc[i] == vocales[j]) counter++;
+        }
+      }
+      return counter;
+    }
+
+    /* 6) Devuelve el tipo del argumento: objeto, booleano, funcion, numero, cadena o undefined. */
+    function obtenerTipo(valor) {
+      return null;
+    }
+
+    /* 7) Descompone una cantidad en monedas indicadas por un array de valores. */
+    function cantidadMonedas(cantidad, monedas) {
+      return null;
+    }
+
+    /* 8) Devuelve el dominio de una direccion de correo electronico, sin el @. */
+    function extraerDominio(correo) {
+      return null;
+    }
+
+    /* 9) Devuelve el promedio de las notas recibidas en un array. */
+    function promedioNotas(arrayNotas) {
+      return null;
+    }
+
+    // Agrupar las funciones para poder llamarlas en formato DICT como si fueran parte de una clase
+    const funciones = {
+      esPalindromo,
+      obtenerIniciales,
+      revertirPalabras,
+      desplazarLetras,
+      contarVocales,
+      obtenerTipo,
+      cantidadMonedas,
+      extraerDominio,
+      promedioNotas
+    };
+
+    // 10) Escribr en el HTML la funcion el EJ, funcion a llamar y cada input con su respuesta
+    function run(numeroEjercicio, nombreFuncion, listaInputs) {
+      const funcion = funciones[nombreFuncion];
+
+      document.write("<h1>Ejercicio " + numeroEjercicio + "</h1>");
+      document.write("<p>Función que se llama: \"" + nombreFuncion + "\"</p>");
+
+      for (const parametros of listaInputs) {
+        document.write("<p>Parametro que se pasa: " + JSON.stringify(parametros) + "</p>");
+        document.write("<p>Resultado: " + funcion(...parametros) + "</p>");
+      }
+    }
+
+    // ejemplos principalmente tomados del enunciado
+    run(1, "esPalindromo", [
+      ["Allí ves a Sevilla"],
+      ["Anita lava la tina"],
+      ["Hola mundo"]
+    ]);
+
+    run(2, "obtenerIniciales", [
+      ["John Doe"],
+      ["Alice Johnson Smith"],
+      ["Ana Maria Lopez"]
+    ]);
+
+    run(3, "revertirPalabras", [
+      ["Hola, como estas"],
+      ["JavaScript es increible"],
+      ["Una prueba mas"]
+    ]);
+
+    run(4, "desplazarLetras", [
+      ["Desarrollo"],
+      ["abcxyz"],
+      ["JavaScript"]
+    ]);
+
+    run(5, "contarVocales", [
+      ["El rápido zorro marrón"],
+      ["Hola mundo"],
+      ["AEIOU"]
+    ]);
+
+    run(6, "obtenerTipo", [
+      [42],
+      ["texto"],
+      [true]
+    ]);
+
+    run(7, "cantidadMonedas", [
+      [46, [25, 10, 5, 2, 1]],
+      [30, [25, 10, 5, 2, 1]],
+      [7, [5, 2, 1]]
+    ]);
+
+    run(8, "extraerDominio", [
+      ["usuario@example.com"],
+      ["otrousuario@gmail.com"],
+      ["alguien@dominio.es"]
+    ]);
+
+    run(9, "promedioNotas", [
+      [[9, 8, 7, 3.2, 5]],
+      [[10, 8, 6]],
+      [[5.5, 7.25]]
+    ]);
+
+  </script>
+</body>
+
+</html>

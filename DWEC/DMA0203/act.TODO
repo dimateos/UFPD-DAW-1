@@ -1,0 +1,64 @@
+TE0203 Estructura del lenguaje JavaScript.
+Enunciado.
+1. Escribe una función JavaScript que diga si una cadena de caracteres es un palíndromo.
+
+Cadena de ejemplo: "Allí ves a Sevilla"
+
+Salida esperada : true
+
+Pista: tienes que ignorar los espacios, las mayúsculas y los acentos, es decir que "Allí ves a Sevilla" se tiene que tratar como si fuera: "allivesasevilla"
+
+2. Escribe una función llamada obtenerIniciales que tome un nombre completo como parámetro y devuelva las iniciales de cada palabra en el nombre. Debes combinar las funciones split y substr para lograr esto.
+
+Ejemplo de uso:
+
+console.log(obtenerIniciales("John Doe")); // Salida esperada: "JD"
+
+console.log(obtenerIniciales("Alice Johnson Smith")); // Salida esperada: "AJS"
+
+3. Escribe una función llamada revertirPalabras que tome una oración como parámetro y devuelva la oración con las palabras en orden inverso.
+Ejemplo de uso:
+
+console.log(revertirPalabras("Hola, cómo estás")); // Salida esperada: "estás cómo Hola,"
+
+console.log(revertirPalabras("JavaScript es increíble")); // Salida esperada: "increíble es JavaScript"
+
+4. Escribe una función JavaScript que tome una cadena y desplace cada letra un lugar en el alfabeto (a -> b, b -> c, ..., z -> a).
+
+Cadena de ejemplo: 'Desarrollo'.
+
+Resultado esperado: 'Eftbsspmmp'.
+
+5. Escribe una función de JavaScript que acepte una cadena como parámetro y cuente el número de vocales dentro de la cadena.
+
+Ejemplo de cadena: "El rápido zorro marrón"
+
+Producción esperada: 8
+
+6. Escribe una función JavaScript que acepte un argumento y devuelva el tipo.
+
+Nota: Hay seis posibles valores que el tipo de retornos: objeto, booleano, función, número, cadena e undefined.
+
+7. Escribe una función de JavaScript para convertir una cantidad X de dinero en monedas. A la función se le deben pasar los valores de las monedas en las que queremos cambiar mediante un array
+
+Función de la muestra : cantodadMonedas(46, [25, 10, 5, 2, 1])
+
+Aquí 46 es la cantidad. y 25, 10, 5, 2, 1 son las monedas.
+
+Salida: 25, 10, 10, 1
+
+8. Escribe una función llamada extraerDominio que tome una dirección de correo electrónico como parámetro y devuelva solo el dominio (sin el @).
+
+ejemplo:
+
+console.log(extraerDominio("usuario@example.com")); // Salida esperada: "example.com"
+
+console.log(extraerDominio("otrousuario@gmail.com")); // Salida esperada: "gmail.com"
+
+9. Escribe una función de JavaScript llamada promedioNotas(arrayNotas). Recibe un array de números (las notas del estudiante) y devuelve el promedio (la suma de las notas dividida entre la cantidad de notas).
+
+Ejemplo:
+
+promedioNotas([9,8,7,3.2,5]) devuelve 6.44
+
+10. Escribe archivo principal (index.html) que llame tres veces (con parámetros diferentes) a cada una de las funciones que has creado. En cada una de las llamadas debe escribir con document.write() la función a la que se llama, los parámetros que se le pasa y los resultados que devuelve. La web tiene que tener este aspecto:
