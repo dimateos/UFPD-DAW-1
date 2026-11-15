@@ -1,0 +1,36 @@
+Tarea para DWES03
+Vas a crear tu primera web en PHP utilizando formularios, variables y arrays.
+
+Os pido
+
+Realizar una aplicación web en PHP que permita calcular la nota de un alumno tras introducir las notas de los exámenes y tareas.
+
+El funcionamiento será el siguiente
+
+Habrá un formulario web con tres objetos de formulario
+
+OBJETO 1: Select (desplegable) que permita elegir el tipo de elemento a evaluar (Examen o Tarea)
+OBJETO 2: Campo de texto, que permitirá introducir la nota (valor entero entre 0 y 10)
+OBJETO 3: Botón de envío, que permitirá guardar ese elemento a evaluar
+Conforme vayas añadiendo elementos a evaluar, se irá calculando la nota media de la siguiente manera
+
+Nota media de exámenes contará el 70% de la nota final
+Nota media de tareas contará el 30% de la nota final
+¿Necesitas ayuda?
+
+Podrías empezar por
+
+Paso 1: Crea el formulario en HTML
+Paso 2: Almacena los valores metidos en los CAMPOS DE TEXTO cuando el usuario haga click en el BOTÓN GUARDAR (Creo que lo mejor es que crees dos arrays, uno para tareas y otro para exámenes, y vayas metiendo la nota en cada uno de ellos según sea Tarea o Examen)
+Paso 3: Crea una función que calcule la nota media final recorriendo esos arrays
+No hay que utilizar una base de datos. Los datos solicitados al usuario puedes guardarlos en variables PHP.
+
+Puntuación:
+
+Crea el formulario: 2 puntos.
+Guarda la nota de tareas en un array (tareas): 2 puntos.
+Guarda la nota de examen en un array (exámenes): 2 puntos.
+Crea la función que calcule la nota media final en base a los dos anteriores arrays: 4 puntos.
+Recordatorio:
+
+Para el desarrollo de la tarea debéis usar los contenidos vistos hasta ahora en el curso
