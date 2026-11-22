@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Página-1" id="WU8xHYQ2RBh8J2_GitV8">
-        <mxGraphModel dx="1480" dy="1417" grid="1" gridSize="50" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
+        <mxGraphModel dx="846" dy="972" grid="1" gridSize="50" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -83,9 +83,9 @@
                     <mxGeometry height="62" width="170" x="319" y="1236" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#82b366;fontSize=13;rounded=0;" value="&lt;u&gt;id_videojuego&lt;/u&gt;" vertex="1">
-                    <mxGeometry height="42" width="165" x="119" y="1393" as="geometry"/>
+                    <mxGeometry height="42" width="165" x="112" y="1404" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" edge="1" parent="1" source="28" style="endArrow=none;html=1;rounded=0;strokeColor=#444444;strokeWidth=1.5;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="29">
+                <mxCell id="30" edge="1" parent="1" source="28" style="endArrow=none;html=1;rounded=0;strokeColor=#444444;strokeWidth=1.5;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="29">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="358.52" y="1103" as="targetPoint"/>
                     </mxGeometry>

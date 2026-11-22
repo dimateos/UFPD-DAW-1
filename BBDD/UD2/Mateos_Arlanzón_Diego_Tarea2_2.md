@@ -3,6 +3,38 @@
 
 # Punto 2 - Transformación al modelo relacional
 
+**EMPLEADO** (<u>id_empleado</u>, nombre, email, calle, numero)
+
+- **Justificación**: direccion es un atributo compuesto; se representa con sus componentes calle y numero.
+
+**TELEFONO_EMPLEADO** (<u>id_empleado*</u>, <u>telefono</u>)
+
+- {id_empleado} referencia EMPLEADO.
+- **Justificación**: telefono es multivaluado, por eso se crea una tabla independiente.
+
+**DISEÑADOR** (<u>id_empleado*</u>, herramienta_diseño)
+
+- {id_empleado} referencia EMPLEADO.
+- **Justificación**: se crea una tabla para el subtipo y se conserva la clave de EMPLEADO.
+
+**COLABORA** (<u>id_empleado*</u>, <u>id_videojuego*</u>, fecha, rol)
+
+- {id_empleado} referencia DISEÑADOR.
+- {id_videojuego} referencia VIDEOJUEGO.
+- **Justificación**: COLABORA es una relación muchos a muchos y tiene atributos propios por lo que se requiere una tabla.
+
+**PROGRAMADOR** (<u>id_empleado*</u>, lenguaje_principal, id_videojuego*)
+
+- {id_empleado} referencia EMPLEADO.
+- {id_videojuego} referencia VIDEOJUEGO.
+- **Justificación**: se crea una tabla para el subtipo. La relación DESARROLLA se representa con una FK porque cada programador desarrolla un videojuego y cada videojuego puede tener varios programadores. No es necesaria una tabla adicional aunque seria util por si en el futuro se requiere añadir datos como a colabora, y en mi opinión sería más facil de entender.
+
+**VIDEOJUEGO** (<u>id_videojuego</u>, titulo, precio, genero)
+
+**PLATAFORMA** (<u>id_plataforma</u>, nombre, id_videojuego*)
+
+- {id_videojuego} referencia VIDEOJUEGO y admite valores nulos.
+- **Justificación**: cada videojuego puede estar asociado a varias plataformas, mientras que cada plataforma puede pertenecer a cero o un videojuego. Por eso, la FK se incluye en PLATAFORMA.
 
 
 <!--  --> <div style="page-break-after: always;"></div>
