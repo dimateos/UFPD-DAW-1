@@ -1,36 +1,35 @@
-/* Fuente de Star Wars descargada  */
+/* Fuente de Star Wars descargada */
 @font-face {
     font-family: StarWars;
     src: url("assets/Starwars.ttf");
 }
 
-/* Fondo de la página */
+/* El color de fondo es “Lightblue”. */
 body {
     background-color: Lightblue;
 }
 
-/* Formato de los textos */
+/* La letra de los párrafos es “Helvetica”, un 40% más grande. */
+/* El texto estará justificado */
 p, ul {
     font-family: Helvetica;
     font-size: 140%;
     text-align: justify;
 }
 
-/* Recuadro de la cabecera */
+/* El recuadro del título será de color “White”, 8px de grosor y con bordes redondeados. */
 header {
     width: 72%;
     margin: auto;
     text-align: center;
 }
-
-/* Borde de la cabecera */
 header fieldset {
     border: 8px solid White;
     border-radius: 40px;
     padding: 10px;
 }
 
-/* Título principal */
+/* El título tendrá color “White” y sombra “Black”. */
 h1 {
     font-family: StarWars;
     font-size: 300%;
@@ -40,7 +39,8 @@ h1 {
     margin: 0px;
 }
 
-/* Leyendas de los recuadros */
+/* El recuadro del título incorporará la leyenda “STAR WARS”. */
+/* Los bloques de “REPARTO y PERSONAJES” y “PREMISA” incluirán una leyenda con esos mismos textos. */
 legend {
     font-family: StarWars;
     font-size: 150%;
@@ -48,19 +48,17 @@ legend {
     padding: 0px 10px;
 }
 
-/* Columna izquierda */
+/* Secciones usando ID unico */
 #izquierda {
     float: left;
     width: 49%;
 }
-
-/* Columna derecha */
 #derecha {
     float: right;
     width: 49%;
 }
 
-/* Recuadros del contenido */
+/* Los bloques tendrán todos bordes redondeados y suficiente separación con el texto interior. */
 article fieldset {
     border: 8px solid Lavender;
     border-radius: 30px;
@@ -68,7 +66,8 @@ article fieldset {
     margin: 25px 10px;
 }
 
-/* Formato de las imágenes */
+/* Las imágenes tendrán borde redondeado y sombras orientadas como en la captura. (DarkBlue) */
+/* Las imágenes tendrán marco y ajustarán su tamaño al de la captura, el texto las rodeará. */
 img {
     width: 220px;
     border: 2px solid Blue;
@@ -77,38 +76,35 @@ img {
     box-shadow: 7px 7px 7px DarkBlue;
 }
 
-/* Logo situado a la derecha */
+/* Logo situado a la derecha usando ID unico */
 #logo {
     float: right;
     margin: 0px 8px 10px 25px;
 }
 
-/* Cartel situado a la izquierda */
+/* Cartel situado a la izquierda usando ID unico */
 #cartel {
     float: left;
     margin: 0px 25px 10px 5px;
 }
 
-/* Logo atenuado de fondo */
+/* Los bloques de “REPARTO y PERSONAJES” y “PREMISA” incluirán el logo (versión atenuada) centrado y ajustado al tamaño del bloque como se observa en la captura. */
+/* En este caso uso una clase porque no es un elemento unico */
 .fondo {
     background-image: url("assets/Logo1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto 80%;
 }
-
-/* Separación de las viñetas */
 ul {
     padding-left: 35px;
 }
 
-/* Pie de página */
+/* Pie de página + sobrescribir que pestaba justificado en general */
 footer {
     clear: both;
     text-align: center;
 }
-
-/* Texto del pie de página */
 footer p {
     text-align: center;
 }
