@@ -6,3 +6,6 @@ bin/
 out.html
 *.zip
 __out/
+
+# some assets (stored in zips)
+assets/
